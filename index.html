@@ -105,6 +105,8 @@ $('#emailId').attr('maxLength', 80)
 });
 });
 });
+   
+   
 </script>
  <script>
 window.mfc=window.mfc||{};mfc.preConfigModules=mfc.preConfigModules||[];mfc.preConfigModules.push(function(){require(["jquery","mfcSpinner","amplify","bootstrap"],function($,mfcSpinner,amplify){var keepMessage=false;function authenticate(jForm,controllerEndPoint,spinner){jQuery.ajax({type:'POST',data:jForm.serialize(),url:controllerEndPoint,contentType:"application/x-www-form-urlencoded; charset=UTF-8",timeout:300000,success:function(data,textStatus,request){loginPassResult(jForm,data,request);if(data.result==="failure"){keepMessage=true;jForm.find('span.invalid input:first').focus();}},error:function(XMLHttpRequest,textStatus,errorThrown){var elem=jForm.find($(".login_notification"));elem.html('<p>Your request to login could not be completed.<br/><br/>For assistance, please contact our Client Relations team:<br/><br/>1-800-387-0614 or 416-922-3217<br/><a href="mailto:service@mackenzieinvestments.com">service@mackenzieinvestments.com</a><br/>Monday to Friday 8am to 8pm (ET)</p>');elem.show();var email=jForm.find($("input.email"));var pswd=jForm.find($("input.password"));email.parent().addClass('invalid');pswd.parent().addClass('invalid');spinner.stopSpin();}}).done(function(){var pswd=jForm.find($("input.password"));pswd.attr("value","");clearSourceLocalStorage();spinner.stopSpin();});}
