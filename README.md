@@ -1,2 +1,2 @@
-# Offer Management
-Demo for Offer Management
+# Investments
+Investments Demo
